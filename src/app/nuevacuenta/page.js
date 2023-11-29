@@ -48,7 +48,7 @@ const NuevaCuenta = () => {
             }
           }
         })
-        console.log("DATA", data)
+
         if (data.nuevoUsuario.id) {
           guardarMensaje(`Se creo el usuario: ${data.nuevoUsuario.nombre}`)
           setTimeout(() => {
