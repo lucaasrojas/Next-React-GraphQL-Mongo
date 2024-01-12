@@ -8,6 +8,7 @@ import Head from 'next/head'
 import NuevaCuenta from './nuevacuenta/page'
 import { ApolloProvider } from '@apollo/client'
 import client from '../../config/apollo'
+import Header from '@/components/Header/Header'
 const inter = Inter({ subsets: ['latin'] })
 
 export default function RootLayout({ children }) {
@@ -35,6 +36,7 @@ export default function RootLayout({ children }) {
                   <>
                     <Sidebar></Sidebar>
                     <main className='sm:w-2/3 xl:w-4/5 sm:min-h-screen p-5'>
+                      <Header />
                       {children}
 
                     </main>

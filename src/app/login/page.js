@@ -4,6 +4,7 @@ import { useFormik } from 'formik'
 import * as Yup from "yup"
 import { gql, useMutation } from '@apollo/client'
 import { useRouter } from 'next/navigation'
+
 const AUTENTICAR_USUARIO = gql`
   mutation AutenticarUsuario($input: AutenticarInput) {
     autenticarUsuario(input: $input) {
@@ -26,7 +27,7 @@ const Login = () => {
       password: Yup.string().required("El password no puede ser vacio").min(6, "Debe ser de almenos 6 caracteres")
     }),
     onSubmit: async values => {
-      console.log("Enviando", values)
+
       try {
         const { data } = await autenticarUsuario({
           variables: {
@@ -43,6 +44,7 @@ const Login = () => {
           router.push("/clientes")
         }
       } catch (error) {
+        console.log("error", error)
         mostrarMensaje(error.message.replace("GraphQL error: ", ""))
       }
     }
